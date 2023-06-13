@@ -1,0 +1,20 @@
+apiVersion: v1  
+kind: ReplicationController
+metadata: 
+  name: replica-controller
+  labels:
+    app: nginx
+    type: front-end
+spec:
+  template:
+    metadata: 
+      name: nginx
+      labels:
+        app: nginx
+        type: frontend
+    spec:
+     containers:
+     - name: nginx
+       image: nginx
+  replicas: 3
+
